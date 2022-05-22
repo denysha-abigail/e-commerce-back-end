@@ -6,8 +6,11 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
-  Category.findAll({include:[Product]})
-    .then(categories => res.json(categories));
+  Category.findAll({
+    include:[Product]
+  })
+    .then((categories) => res.json(categories))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.get('/:id', (req, res) => {
@@ -17,12 +20,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: [
-      {
-        model: Product,
-        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
-      }
-    ]
+    include: [Product]
   })
   .then((category) => {
     if (!category) {
@@ -39,10 +37,12 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create({
-  category_name: req.body.category_name
-  })
-  .then(category =>res.json(category))
+  Category.create(req.body)
+  .then(category => res.json(category))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 router.put('/:id', (req, res) => {
@@ -76,12 +76,12 @@ router.delete('/:id', (req, res) => {
         res.status(404).json({ message: "No category found with this id" });
         return;
       }
-        res.json(category);
+        res.json({ message: 'Item was deleted!' });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    })    
+    });    
 });
 
 module.exports = router;
