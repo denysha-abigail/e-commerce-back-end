@@ -68,7 +68,7 @@ router.delete('/:id', (req, res) => {
         res.status(404).json({ message: "No tag found with this id" });
         return;
       }
-      res.json({message: 'This Tag was deleted!'});
+      res.json({message: 'This tag was deleted!'});
     })
     .catch((err) => {
       console.log(err);
