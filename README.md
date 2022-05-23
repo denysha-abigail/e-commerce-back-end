@@ -37,11 +37,23 @@ This back-end command-line application utilizes JavaScript, MySQL, Node.js, and 
 
 
 
+https://user-images.githubusercontent.com/96617237/169732420-72c2250e-bf9b-4a19-a794-ce7424ca562c.mp4
+
+
+
 - GET, POST, PUT, and DELETE Products
 
 
 
+https://user-images.githubusercontent.com/96617237/169732460-c561ff2f-b369-4d16-ad95-340053c6d34c.mp4
+
+
+
 - GET, POST, PUT, and DELETE Tags
+
+
+
+https://user-images.githubusercontent.com/96617237/169736005-1b7ec3c4-3519-4fd0-af01-5bab042bc11c.mp4
 
 
 
